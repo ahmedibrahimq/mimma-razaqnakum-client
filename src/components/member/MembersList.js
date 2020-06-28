@@ -1,7 +1,7 @@
 import React from "react";
-import Member from "./Member";
+import MemberCard from "./MemberCard";
 
-function MemberList() {
+function MembersList() {
   return (
     <section className="text-gray-700 body-font">
       <div className="container px-5 pb-24 mx-auto">
@@ -17,13 +17,13 @@ function MemberList() {
         </div>
         <div className="flex justify-center flex-wrap -m-4">
           <div className="p-4 xl:w-1/4 lg:w-1/3 md:w-1/2">
-            <Member />
+            <MemberCard />
           </div>
           <div className="p-4 xl:w-1/4 lg:w-1/3 md:w-1/2">
-            <Member />
+            <MemberCard />
           </div>
           <div className="p-4 xl:w-1/4 lg:w-1/3 md:w-1/2">
-            <Member />
+            <MemberCard />
           </div>
         </div>
       </div>
@@ -31,4 +31,4 @@ function MemberList() {
   );
 }
 
-export default MemberList;
+export default MembersList;

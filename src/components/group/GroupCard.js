@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ group_name, logo, address }) {
+function GroupCard({ group_name, logo, address }) {
   return (
     <div className="border p-6 bg-white rounded-sm h-20r relative">
       <div className="w-20 h-20 inline-flex items-center justify-center bg-indigo-100 text-indigo-500 mb-4 overflow-hidden">
@@ -22,4 +22,4 @@ function Card({ group_name, logo, address }) {
   );
 }
 
-export default Card;
+export default GroupCard;

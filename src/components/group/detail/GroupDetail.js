@@ -1,9 +1,9 @@
 import React from "react";
-import SideBar from "../SideBar";
+import SideBar from "../../SideBar";
 import Main from "./Main";
-import Footer from "../Footer";
+import Footer from "../../Footer";
 
-function Detail({ group }) {
+function GroupDetail({ group }) {
   return (
     <div className="flex">
       <SideBar />
@@ -15,4 +15,4 @@ function Detail({ group }) {
   );
 }
 
-export default Detail;
+export default GroupDetail;

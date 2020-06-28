@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "./Search";
-import Campain from "../campain/Campain";
-import Footer from "../Footer";
+import CampainCard from "../../campain/CampainCard";
+import Footer from "../../Footer";
 
 function Main({ group }) {
   const [campains, setCampains] = useState([]);
@@ -43,7 +43,7 @@ function Main({ group }) {
           endMessage={<Footer />}
         >
           {campains.map((campain) => (
-            <Campain {...campain} group={group} key={campain.title} />
+            <CampainCard {...campain} group={group} key={campain.title} />
           ))}
         </InfiniteScroll>
       </div>

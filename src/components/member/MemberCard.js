@@ -1,6 +1,6 @@
 import React from "react";
 
-function Member() {
+function MemberCard() {
   return (
     <div className="bg-white border overflow-hidden">
       <img
@@ -59,4 +59,4 @@ function Member() {
   );
 }
 
-export default Member;
+export default MemberCard;

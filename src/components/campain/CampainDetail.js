@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Tags from "./Tags";
 import Progress from "./Progress";
-import Donor from "./Donor";
-import MemberList from "../group/MemberList";
+import DonorCard from "./DonorCard";
+import MembersList from "../member/MembersList";
 import axios from "axios";
 import omit from "lodash.omit";
-import ArrowAnchor from "../ArrowAnchor";
+import ArrowAnchor from "../shared/ArrowAnchor";
 
-function Detail({ campainTitle, group }) {
+function CampainDetail({ campainTitle, group }) {
   const [campain, setCampain] = useState({});
   const [tags, setTags] = useState([]);
   const [donations, setDonations] = useState([]);
@@ -27,7 +27,7 @@ function Detail({ campainTitle, group }) {
     <section className="text-gray-700 body-font pt-16">
       <ArrowAnchor
         right
-        href={`/${group}/`}
+        href={`/${group}`}
         text={`back to ${group}`}
         className="text-gray-700 py-1 pl-5"
       />
@@ -52,16 +52,16 @@ function Detail({ campainTitle, group }) {
           </h2>
           {donations ? (
             donations.map((donation, index) => (
-              <Donor key={index} {...donation} />
+              <DonorCard key={index} {...donation} />
             ))
           ) : (
             <h2 className="text-lg opacity-75">Be the first donor ❤️</h2>
           )}
         </div>
       </div>
-      <MemberList />
+      <MembersList />
     </section>
   );
 }
 
-export default Detail;
+export default CampainDetail;

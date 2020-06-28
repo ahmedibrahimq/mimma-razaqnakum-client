@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import GroupCard from "./Card";
+import GroupCard from "./GroupCard";
 import axios from "axios";
-import Member from "../Member";
 
-function List() {
+function GroupsList() {
   const [groups, setGroups] = useState([]);
   useEffect(() => {
     axios
@@ -36,4 +35,4 @@ function List() {
   );
 }
 
-export default List;
+export default GroupsList;

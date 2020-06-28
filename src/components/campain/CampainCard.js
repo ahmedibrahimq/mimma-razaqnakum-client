@@ -2,7 +2,7 @@ import React from "react";
 import Progress from "./Progress";
 import Tags from "./Tags";
 
-function Campain({
+function CampainCard({
   group,
   title,
   details,
@@ -47,4 +47,4 @@ function Campain({
   );
 }
 
-export default Campain;
+export default CampainCard;

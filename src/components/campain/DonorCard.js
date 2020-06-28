@@ -1,6 +1,6 @@
 import React from "react";
 
-function Donor({ donor, amount, created_at }) {
+function DonorCard({ donor, amount, created_at }) {
   return (
     <div className="flex items-center justify-between max-w-md mb-1 p-2 border">
       <div className="flex-grow mb-1 border-r px-3">
@@ -14,4 +14,4 @@ function Donor({ donor, amount, created_at }) {
   );
 }
 
-export default Donor;
+export default DonorCard;
