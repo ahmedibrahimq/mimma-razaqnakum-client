@@ -1,14 +1,19 @@
 import React from "react";
 
-function MemberCard() {
+function MemberCard({ username, full_name, phone, landline, fb_acc, avatar }) {
   return (
-    <div className="bg-white border overflow-hidden">
+    <div className="bg-white border mt-6 overflow-hidden">
       <img
-        src="https://avatars.dicebear.com/api/identicon/Group%20Member.svg?m=4"
+        src={
+          avatar ||
+          "https://avatars.dicebear.com/api/identicon/Group%20Member.svg?m=4"
+        }
         alt="avatar"
         className="w-full h-56 mx-auto object-cover object-center"
       />
-      <div className="hidden flex items-center px-6 py-3 bg-gray-900">
+      {
+        // placeholder for member rule
+        /* <div className="hidden flex items-center px-6 py-3 bg-gray-900">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -22,14 +27,11 @@ function MemberCard() {
           ></path>
         </svg>
         <h1 className="mx-3 text-white font-semibold text-lg">Focusing</h1>
-      </div>
+      </div> */
+      }
       <div className="py-4 px-6">
-        <h1 className="text-lg font-semibold text-gray-800">
-          Patterson johnson
-        </h1>
-        <p className="py-2 text-gray-700 truncate">
-          Full Stack maker &amp; UI / UX Designer
-        </p>
+        <h1 className="text-lg font-semibold text-gray-800">{full_name}</h1>
+        <p className="py-2 text-gray-700 truncate">@{username}</p>
         <div className="flex text-gray-700">
           <div className="flex flex-col items-center">
             <i className="text-xl mt-4 fas fa-phone-square-alt h-6 w-6 fill-current"></i>
@@ -37,23 +39,11 @@ function MemberCard() {
             <i className="text-xl mt-4 fab fa-facebook-messenger h-6 w-6 fill-current"></i>
           </div>
           <div className="flex flex-col justify-evenly">
-            <h1 className="px-2 mt-4 text-sm">0101 253 3020</h1>
-            <h1 className="px-2 mt-4 text-sm">050 453 1818</h1>
-            <h1 className="px-2 mt-4 text-sm">m.me/example0255534534</h1>
+            <h1 className="px-2 mt-4 text-sm">{phone}</h1>
+            <h1 className="px-2 mt-4 text-sm">{landline}</h1>
+            <h1 className="px-2 mt-4 text-sm">{fb_acc}</h1>
           </div>
         </div>
-        {/* <div className="flex items-center mt-4 text-gray-700">
-          <i className="text-xl fas fa-phone-square-alt h-6 w-6 fill-current"></i>
-          <h1 className="px-2 text-sm">0101 253 3020</h1>
-        </div>
-        <div className="flex items-center mt-4 text-gray-700">
-          <i className="text-xl fas fa-home h-6 w-6 fill-current"></i>
-          <h1 className="px-2 text-sm">050 453 1818</h1>
-        </div>
-        <div className="flex items-center mt-4 text-gray-700">
-          <i className="text-xl fab fa-facebook-messenger h-6 w-6 fill-current"></i>
-          <h1 className="px-2 text-sm">m.me/example0255534534</h1>
-        </div> */}
       </div>
     </div>
   );

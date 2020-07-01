@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import omit from "lodash.omit";
+
 import Tags from "./Tags";
 import Progress from "./Progress";
 import DonorCard from "./DonorCard";
 import MembersList from "../member/MembersList";
-import axios from "axios";
-import omit from "lodash.omit";
 import ArrowAnchor from "../shared/ArrowAnchor";
 
-function CampainDetail({ campainTitle, group }) {
+function CampainDetail({ campainTitle: title, group }) {
   const [campain, setCampain] = useState({});
   const [tags, setTags] = useState([]);
   const [donations, setDonations] = useState([]);
+  const [members, setMembers] = useState([]);
+
   useEffect(() => {
     async function getDetails() {
-      const { data } = await axios.get(
-        `http://localhost:3000/api/campain/${campainTitle}?gn=${group}`
-      );
-      setTags(data.data[0]["tags"]);
-      setDonations(data.data[0]["donations"]);
-      setCampain(omit(data.data[0], ["tags", "donations"]));
+      const [{ data: campainData }, { data: membersList }] = await Promise.all([
+        axios.get(`http://localhost:3000/api/campain/${title}?gn=${group}`),
+        axios.get(`http://localhost:3000/api/member?groupName=${group}`),
+      ]);
+
+      setTags(campainData.data[0]["tags"]);
+      setDonations(campainData.data[0]["donations"]);
+      setMembers(membersList.data);
+      setCampain(omit(campainData.data[0], ["tags", "donations"]));
     }
     getDetails();
   }, []);
@@ -59,7 +65,7 @@ function CampainDetail({ campainTitle, group }) {
           )}
         </div>
       </div>
-      <MembersList />
+      <MembersList members={members} />
     </section>
   );
 }
