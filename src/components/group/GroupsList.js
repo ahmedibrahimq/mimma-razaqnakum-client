@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import GroupCard from "./GroupCard";
-import axios from "axios";
+import { getGroups } from "../../utils/api";
 
 function GroupsList() {
   const [groups, setGroups] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/group")
-      .then(({ data }) => setGroups(data.data))
-      .catch(console.error);
+    getGroups().then(({ data: groupsList }) => setGroups(groupsList));
   }, []);
 
   return (

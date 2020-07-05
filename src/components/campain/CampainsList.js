@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+
 import CampainCard from "./CampainCard";
+import { getGroupCampaigns } from "../../utils/api";
 
 function CampainsList({ group, members }) {
   const [campains, setCampains] = useState([]);
@@ -12,10 +13,9 @@ function CampainsList({ group, members }) {
   useEffect(() => {
     if (!hasMore) return;
 
-    axios
-      .get(`http://localhost:3000/api/campain?gn=${group}&pg=${page}&l=10`)
-      .then(({ data }) => {
-        setCampains(campains.concat(data.data));
+    getGroupCampaigns(group, page)
+      .then(({ data: campaignsList }) => {
+        setCampains(campains.concat(campaignsList));
       })
       .catch((err) => {
         // 404 is expected when page is outOf range. This is the way we handle hasMore
@@ -34,7 +34,7 @@ function CampainsList({ group, members }) {
         hasMore={hasMore}
         scrollThreshold={0.9}
         loader="loading..."
-        endMessage={"Donate with ❤️"}
+        endMessage={"Donate now ❤️"}
       >
         {campains.map((campain) => (
           <CampainCard

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 import SideBar from "../../SideBar";
 import CampainsList from "../../campain/CampainsList";
 import RightSidebar from "./RightSidebar";
 import Footer from "../../Footer";
+import { getGroupMembers } from "../../../utils/api";
 
 function GroupDetail({ group }) {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/member?groupName=${group}`)
-      .then(({ data }) => setMembers(data.data));
+    getGroupMembers(group).then(({ data: membersList }) =>
+      setMembers(membersList)
+    );
   }, []);
 
   return (
