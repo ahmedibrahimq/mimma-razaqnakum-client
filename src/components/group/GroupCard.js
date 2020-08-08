@@ -1,8 +1,8 @@
 import React from "react";
 
-function GroupCard({ group_name, logo, address }) {
+function GroupCard({ group_name = "Test", logo, address = "Cairo" }) {
   return (
-    <div className="border p-6 bg-white rounded-sm h-20r relative">
+    <div className="border p-6 bg-white rounded shadow-sm h-20r relative">
       <div className="w-20 h-20 inline-flex items-center justify-center bg-indigo-100 text-indigo-500 mb-4 overflow-hidden">
         <img
           src={
