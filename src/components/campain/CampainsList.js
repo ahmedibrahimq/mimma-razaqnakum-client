@@ -27,7 +27,7 @@ function CampainsList({ group, members }) {
   }, [page]);
 
   return (
-    <div className="flex-grow px-6 mx-auto max-w-38r">
+    <div className="flex-grow px-6 sm:pr-0 mx-auto max-w-38r">
       <InfiniteScroll
         dataLength={campains.length}
         next={() => setPage(page + 1)}
