@@ -15,9 +15,9 @@ main {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 256px;
-  min-height: 100vh;
-  /* overflow-y: scroll; */
+  min-width: 256px;
+  /* min-height: calc(100vh - 4rem); */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 0;
   display: none;
@@ -38,7 +38,7 @@ main {
   z-index: 1;
   /* will-change: transform; */
   background-color: #f7fafc; /* A background-color is required */
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 .slideout-open,
@@ -51,6 +51,13 @@ main {
   display: block;
 }
 
+.active-nav-link {
+  color: #2d3748;
+  background-color: #edf2f7;
+  /* border-radius: 9999px; */
+  /* background: transparent !important; */
+}
+
 /* slideout only on mobile devices */
 @media screen and (min-width: 768px) {
   #search {
@@ -58,15 +65,22 @@ main {
   }
 
   .active-nav-link {
-    background: transparent !important;
+    color: #2d3748;
+    background-color: #edf2f7;
+    /* border-radius: 9999px; */
+    /* background: transparent !important; */
   }
 
   .slideout-panel {
-    margin-left: 256px;
+    /* margin-left: 256px; */
   }
 
   .slideout-menu {
     display: block;
+    position: relative;
+    overflow-y: initial;
+    /* margin-top: 6rem; */
+    /* bottom: 2rem !important; */
     /* z-index: 20; */
   }
 
@@ -79,10 +93,6 @@ main {
 
 .font-family-karla {
   font-family: karla;
-}
-
-.active-nav-link {
-  background: #cbd5e0;
 }
 
 .left-6 {
