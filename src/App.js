@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 
+import Register from "./components/register/Register";
+import Login from "./components/Login";
 import Header from "./components/header/Header";
 import GroupList from "./components/group/GroupsList";
 import GroupDetail from "./components/group/detail/GroupDetail";
@@ -15,6 +17,8 @@ const App = () => {
       <Header />
       <Router>
         <GroupList path="/" />
+        <Login path="/login" />
+        <Register path="/register" />
         <GroupDetail path="/:group" />
         <CampainDetail path="/:group/:campainTitle" />
         <Admin path="/admin" />

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Dropdown from "./Dropdown";
+import React from "react";
 
-function Header() {
-  const [toggleDropdown, setToggleDropdown] = useState(false);
+import UserAvatar from "../shared/UserAvatar";
+
+function Header({ user }) {
   return (
     <header className="fixed top-0 inset-x-0 border-b bg-white z-20">
       <div className="container flex h-16 items-center px-6 mx-auto">
@@ -13,13 +13,24 @@ function Header() {
           <button className="toggle-button text-2xl">☰</button>
         </div>
         <div className="relative w-1/2 flex justify-end">
-          <button
-            className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none"
-            onClick={() => setToggleDropdown(!toggleDropdown)}
-          >
-            <img src="https://avatars.dicebear.com/api/identicon/User%20Header.svg" />
-          </button>
-          {toggleDropdown ? <Dropdown /> : null}
+          {user ? (
+            <UserAvatar />
+          ) : (
+            <>
+              <a
+                href="/login"
+                className="mr-1 py-1 px-2 hover:bg-gray-200 rounded"
+              >
+                Sign in
+              </a>
+              <a
+                href="/register"
+                className="py-1 px-2 bg-indigo-500 hover:bg-indigo-800 rounded text-white"
+              >
+                Get Started
+              </a>
+            </>
+          )}
         </div>
       </div>
     </header>
